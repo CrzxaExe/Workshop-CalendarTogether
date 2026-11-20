@@ -1,26 +1,53 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+  --foreground: #001736;
+  --p3-sky: #79d7fd;
+  --p3-cyan: #00bbfa;
+  --p3-navy: #001736;
+  --p3-deep: #00183e;
+  --p3-gold: #ffc54a;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
 }
 
 body {
-  background: var(--background);
+  min-height: 100vh;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  background: linear-gradient(140deg, var(--p3-navy), var(--p3-deep));
+  background-attachment: fixed;
+}
+
+::selection {
+  color: var(--p3-navy);
+  background: var(--p3-sky);
+}
+
+.fc {
+  --fc-border-color: #d7eaf3;
+  --fc-today-bg-color: rgb(121 215 253 / 16%);
+  --fc-button-bg-color: var(--p3-deep);
+  --fc-button-border-color: var(--p3-deep);
+  --fc-button-hover-bg-color: #087ba2;
+  --fc-button-hover-border-color: #087ba2;
+  --fc-button-active-bg-color: var(--p3-navy);
+  --fc-button-active-border-color: var(--p3-navy);
+}
+.fc .fc-button {
+  color: #fff;
+}
+.fc .fc-toolbar-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--p3-navy);
+}
+.fc .fc-event {
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 0 2px;
 }
